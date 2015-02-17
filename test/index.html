@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/image-picker.css" type="text/css" />
+	</head>
+	<body>
+		<select class="image-picker-1" >
+			<option data-img-src="http://lorempixel.com/350/200/?11" >1</option>
+			<option data-img-src="http://lorempixel.com/300/300/?12" >2</option>
+			<option data-img-src="http://lorempixel.com/400/200/?13" >3</option>
+			<option data-img-src="http://lorempixel.com/300/200/?14" >4</option>
+			<option data-img-src="http://lorempixel.com/300/200/?15" >5</option>
+			<option data-img-src="http://lorempixel.com/300/200/?16" >6</option>
+			<option data-img-src="http://lorempixel.com/300/200/?17" >7</option>
+		</select>
+		<select class="image-picker-2" >
+			<option data-img-src="http://lorempixel.com/350/200/?21" >1</option>
+			<option data-img-src="http://lorempixel.com/300/300/?22" >2</option>
+			<option data-img-src="http://lorempixel.com/400/200/?23" >3</option>
+			<option data-img-src="http://lorempixel.com/300/200/?24" >4</option>
+			<option data-img-src="http://lorempixel.com/300/200/?25" >5</option>
+			<option data-img-src="http://lorempixel.com/300/200/?26" >6</option>
+			<option data-img-src="http://lorempixel.com/300/200/?27" >7</option>
+		</select>
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js" ></script>
+		<script type="text/javascript" src="../js/image-picker.js" ></script>
+		<script type="text/javascript" >
+			$('.image-picker-1').imagePicker();
+			$('.image-picker-2').imagePicker({
+				selectorHeight: 200,
+				selectorWidth: 900,
+				imageMaxHeight: 200,
+				imageMaxWidth: 1000
+			});
+		</script>
+	</body>
+</html>
