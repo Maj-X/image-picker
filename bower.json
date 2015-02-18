@@ -1,0 +1,20 @@
+{
+  "name": "Maj-X.github.io",
+  "version": "0.1.1",
+  "homepage": "http://maj-x.github.io/image-picker",
+  "authors": [
+    "ajouve ajouveuk@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.1"
+  }
+}
