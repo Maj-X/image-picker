@@ -23,4 +23,4 @@ Just download the latest build and add the corresponding .js and .css to your as
 
 # Doc and examples
 
-TODO
+[http://maj-x.github.io/image-picker](http://maj-x.github.io/image-picker)
