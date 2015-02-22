@@ -9,7 +9,6 @@ var ImagePicker = function(element, options)
 	this.attrImageSrc = 'data-img-src';
 
 	var defaults = {
-		selectorHeight: 200,
 		selectorWidth:  900,
 		imageMaxHeight: 500,
 		imageMaxWidth: 500
@@ -48,17 +47,6 @@ var ImagePicker = function(element, options)
 		});
 
 		this.currentImage = (0 in this.images) ? this.images[0] : null;
-	}
-
-	this.getRealImageWidth = function(imageWidth, imageHeight)
-	{
-		var maxWidth = imageWidth > this.params.imageMaxWidth ? this.params.imageMaxWidth : imageWidth;
-
-		var maxHeight = imageHeight > this.params.imageMaxHeight ? this.params.imageMaxHeight : imageHeight;
-
-		var widthFromHeight = ( imageWidth * maxHeight ) / imageHeight;
-
-		return maxWidth > widthFromHeight ? widthFromHeight : maxWidth;
 	}
 
 	this.setContent = function()
@@ -106,11 +94,11 @@ var ImagePicker = function(element, options)
 		this.$selector = $('<div />', {
 			'class': this.selectorClass
 		});
-		this.$selector.css('height', this.params.selectorHeight);
+		this.$selector.css('max-height', this.params.imageMaxHeight);
 		this.$selector.css('width', this.params.selectorWidth);
 
 		this.$selectorInner = $('<div />');
-		this.$selectorInner.css('height', this.params.selectorHeight);
+		this.$selectorInner.css('max-height', this.params.imageMaxHeight);
 		this.$selectorInner.css('width', this.totalImageWidth);
 
 		this.$selector.html(this.$selectorInner);
@@ -122,7 +110,7 @@ var ImagePicker = function(element, options)
 				'src': this.images[i].src,
 				'data-id': this.images[i].id
 			});
-			this.$selectorImages[i].css('max-height', this.params.imageMaxHeight);
+			this.$selectorImages[i].css('max-height', this.params.selectorHeight);
 			this.$selectorImages[i].css('max-width', this.params.imageMaxWidth);
 			this.$selectorInner.append(this.$selectorImages[i]);
 		};
@@ -155,6 +143,17 @@ var ImagePicker = function(element, options)
 			that.updateWidgetInput();
 			that.$selector.fadeOut();
 		});
+	}
+
+	this.getRealImageWidth = function(imageWidth, imageHeight)
+	{
+		var maxWidth = imageWidth > this.params.imageMaxWidth ? this.params.imageMaxWidth : imageWidth;
+
+		var maxHeight = imageHeight > this.params.imageMaxHeight ? this.params.imageMaxHeight : imageHeight;
+
+		var widthFromHeight = ( imageWidth * maxHeight ) / imageHeight;
+
+		return maxWidth > widthFromHeight ? widthFromHeight : maxWidth;
 	}
 }
 
